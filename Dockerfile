@@ -12,7 +12,7 @@ RUN set -xe \
     && apk add --no-cache ca-certificates \
                           curl \
                           gzip \
-                          python \
+                          python2 \
                           tar
 
 RUN curl -L https://github.com/jpluimers/fritzcap/archive/v${VERSION}.tar.gz \
@@ -21,4 +21,4 @@ RUN mkdir /captures
 
 WORKDIR fritzcap
 
-CMD ["sh", "-c", "python fritzcap.py -c -d -m -p ${PASSWORD} --box_name ${BOX_NAME} --cap_folder /captures"]
+ENTRYPOINT ["sh", "-c", "python fritzcap.py"]
