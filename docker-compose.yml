@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  capture:
+    image: ralph/fritzcap-docker:latest
+    volumes:
+      - '.:/captures'
+    command: -c -d -m --username=fritz1234 --password "verysecret" --box_name 192.168.178.1
